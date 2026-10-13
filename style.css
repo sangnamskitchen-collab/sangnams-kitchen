@@ -608,3 +608,10 @@ button { font-family: inherit; }
 }
 .how-details[open] .how-summary::after { transform: rotate(180deg); }
 .how-panel { margin-top: 24px; text-align: left; }
+
+/* ---------- Solid green button and hero placement ---------- */
+.btn-green { background: var(--green); color: var(--cream); }
+.btn-green:hover { background: #0d2611; }
+.hero-actions > .how-details { flex: 1 1 100%; }
+.hero-actions .how-summary { width: 100%; min-width: 0; }
+.hero-actions .how-panel { text-align: left; }
