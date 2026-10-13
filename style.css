@@ -584,3 +584,27 @@ button { font-family: inherit; }
 @media (max-width: 760px) {
   .about-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Phone bar with three buttons ---------- */
+@media (max-width: 640px) {
+  .mobile-bar.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .mobile-bar.three .mobile-bar-btn { font-size: 0.95rem; padding: 0 6px; min-width: 0; }
+}
+
+/* ---------- How to Order: tap-to-open button ---------- */
+.how-details { text-align: center; }
+.how-summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  min-width: 220px;
+}
+.how-summary::-webkit-details-marker { display: none; }
+.how-summary::after {
+  content: "▾";
+  margin-left: 10px;
+  font-size: 0.9em;
+  transition: transform 0.2s ease;
+}
+.how-details[open] .how-summary::after { transform: rotate(180deg); }
+.how-panel { margin-top: 24px; text-align: left; }

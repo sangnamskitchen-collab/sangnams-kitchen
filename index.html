@@ -55,23 +55,24 @@
       </div>
     </section>
 
-    <!-- HOW TO ORDER -->
-    <section class="how" id="how-to-order" aria-labelledby="how-title">
+    <!-- HOW TO ORDER (tap to open) -->
+    <section class="how" id="how-to-order" aria-label="How to order">
       <div class="container">
-        <header class="section-head">
-          <h2 id="how-title">How to Order</h2>
-          <p>It takes about a minute.</p>
-        </header>
-        <ol class="steps">
+        <details class="how-details">
+          <summary class="btn btn-outline btn-md how-summary">How to Order</summary>
+          <div class="how-panel">
+            <ol class="steps">
           <li><span class="step-num">1</span><div><strong>Choose your dishes.</strong> Tap <b>+</b> under the size you want. Tap <b>&minus;</b> to lower the number.</div></li>
           <li><span class="step-num">2</span><div><strong>Open your cart.</strong> Tap <b>Cart</b> at the top to review your order and total.</div></li>
           <li><span class="step-num">3</span><div><strong>Add your name</strong> (optional) so we know who to reply to.</div></li>
           <li><span class="step-num">4</span><div><strong>Send your order.</strong> Tap <b>Send My Order</b> and choose Viber, Messenger, or any app. Then tap Send in that chat.</div></li>
         </ol>
-        <div class="how-note">
+            <div class="how-note">
           <p><strong>Did not see the app list?</strong> Tap <b>Copy Order</b>, open Viber, Messenger, or Instagram, press and hold the message box, and tap <b>Paste</b>.</p>
           <p>Viber, Messenger, and Instagram must be installed on your phone. Open this page in Safari (iPhone) or Chrome (Android), not inside the Facebook or Instagram app.</p>
         </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -163,8 +164,9 @@
   </aside>
 
   <!-- Mobile-only action bar -->
-  <nav class="mobile-bar" aria-label="Quick actions">
-    <a href="#menu" class="mobile-bar-btn mobile-bar-btn-secondary">View Menu</a>
+  <nav class="mobile-bar three" aria-label="Quick actions">
+    <a href="#menu" class="mobile-bar-btn mobile-bar-btn-secondary">Menu</a>
+    <a href="about.html" class="mobile-bar-btn mobile-bar-btn-secondary">About</a>
     <button type="button" class="mobile-bar-btn mobile-bar-btn-primary" data-open-cart>
       Cart <span class="cart-count" data-cart-count>0</span>
     </button>
@@ -669,6 +671,15 @@
     /* =========================================================
        Start
        ========================================================= */
+    function openHowIfLinked() {
+      if (location.hash === "#how-to-order") {
+        const d = document.querySelector(".how-details");
+        if (d) d.open = true;
+      }
+    }
+    openHowIfLinked();
+    window.addEventListener("hashchange", openHowIfLinked);
+
     renderMenu();
     renderContact();
     setupPlatformLinks();
