@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sangnam's Kitchen: freshly prepared Korean homemade favorites in Acacia Estates, Taguig. Kimchi, Korean side dishes, and snacks. Build your order and send it via Viber, Messenger, or Instagram." />
+  <meta name="theme-color" content="#FFF4DF" />
+  <meta property="og:title" content="Sangnam's Kitchen | Authentic Korean Homemade Food" />
+  <meta property="og:description" content="Homemade Korean favorites, made fresh with love. View our menu and place your order." />
+  <meta property="og:type" content="website" />
+  <title>Sangnam's Kitchen | Authentic Korean Homemade Food</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Sangnam's Kitchen, back to top">
+        <img class="logo" src="images/logo.png" alt="Sangnam's Kitchen logo"
+             onerror="this.outerHTML='<span class=&quot;wordmark&quot;>Sangnam&rsquo;s Kitchen</span>'" />
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#menu" class="nav-link">Our Menu</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+      <button type="button" class="btn btn-viber btn-md header-cart" data-open-cart aria-controls="cart">
+        Cart <span class="cart-count" data-cart-count>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow">Korean Homemade Favorites</span>
+          <h1 id="hero-title">Authentic Korean Homemade Food <span class="flag" aria-hidden="true">🇰🇷</span></h1>
+          <p class="hero-sub">Freshly prepared Korean favorites, homemade with love. Discover our kimchi, Korean side dishes, and delicious snacks.</p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary btn-lg">View Our Menu</a>
+            <button type="button" class="btn btn-outline btn-lg" data-open-cart>Order Now</button>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img class="hero-img" src="images/hero.jpg" alt="Sangnam's Kitchen Korean homemade dishes, featuring kimchi" loading="eager"
+               onerror="this.outerHTML=pendingHTML('hero.jpg')" />
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO ORDER -->
+    <section class="how" id="how-to-order" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="how-title">How to Order</h2>
+          <p>It takes about a minute.</p>
+        </header>
+        <ol class="steps">
+          <li><span class="step-num">1</span><div><strong>Choose your dishes.</strong> Tap <b>+</b> under the size you want. Tap <b>&minus;</b> to lower the number.</div></li>
+          <li><span class="step-num">2</span><div><strong>Open your cart.</strong> Tap <b>Cart</b> at the top to review your order and total.</div></li>
+          <li><span class="step-num">3</span><div><strong>Add your name</strong> (optional) so we know who to reply to.</div></li>
+          <li><span class="step-num">4</span><div><strong>Send your order.</strong> Tap <b>Send My Order</b> and choose Viber, Messenger, or any app. Then tap Send in that chat.</div></li>
+        </ol>
+        <div class="how-note">
+          <p><strong>Did not see the app list?</strong> Tap <b>Copy Order</b>, open Viber, Messenger, or Instagram, press and hold the message box, and tap <b>Paste</b>.</p>
+          <p>Viber, Messenger, and Instagram must be installed on your phone. Open this page in Safari (iPhone) or Chrome (Android), not inside the Facebook or Instagram app.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">Our Menu</span>
+          <h2 id="menu-title">Made Fresh with Love</h2>
+          <p>Choose the sizes you want, add them to your cart, and send your order to us in one message.</p>
+        </header>
+        <div id="menu-categories"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="contact-head">
+          <h2 id="contact-title">Craving Korean Homemade Food?</h2>
+          <p>Message us to place your order, ask about availability, or reserve your favorite Korean dishes.</p>
+        </header>
+        <div class="contact-grid" id="contact-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img class="footer-logo" src="images/logo.png" alt="Sangnam's Kitchen"
+           onerror="this.outerHTML='<span class=&quot;wordmark&quot;>Sangnam&rsquo;s Kitchen</span>'" />
+      <ul class="footer-links">
+        <li>Instagram: <a href="https://www.instagram.com/sangnamskitchen/" target="_blank" rel="noopener noreferrer">@sangnamskitchen</a></li>
+        <li>Facebook: <a href="https://www.facebook.com/sangnamskitchen/" target="_blank" rel="noopener noreferrer">Sangnam's Kitchen</a></li>
+        <li>Mobile: <a href="tel:+639063402790">0906 340 2790</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+      <p class="footer-tagline">Homemade Korean Favorites, Made with Love.</p>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay" data-close-cart></div>
+  <aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-head">
+      <h2 id="cart-title">Your Order</h2>
+      <button type="button" class="icon-btn" data-close-cart aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-body">
+      <p class="cart-empty" id="cart-empty">Your cart is empty. Add sizes from the menu to start your order.</p>
+      <ul class="cart-lines" id="cart-lines"></ul>
+
+      <div id="cart-details" hidden>
+        <label class="cart-field">
+          Your name (optional)
+          <input id="cart-name" type="text" maxlength="60" autocomplete="name" placeholder="So we know who to reply to" />
+        </label>
+
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">₱0</strong>
+        </div>
+        <p class="cart-note">Prices are per container size. We'll confirm availability and the final total when we reply.</p>
+
+        <label class="cart-field">
+          Order message (what gets sent)
+          <textarea id="order-preview" rows="7" readonly></textarea>
+        </label>
+      </div>
+    </div>
+
+    <div class="cart-foot">
+      <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-send" disabled>Send My Order</button>
+      <div class="cart-foot-row">
+        <button type="button" class="btn btn-outline" id="btn-copy" disabled>Copy Order</button>
+        <button type="button" class="btn btn-outline" id="btn-clear" disabled>Clear All</button>
+      </div>
+      <p class="send-status" id="send-status" role="status"></p>
+      <p class="platform-label">Or paste your order into a chat:</p>
+      <div class="platform-row">
+        <a class="btn btn-viber" id="link-viber" href="#" target="_blank" rel="noopener noreferrer" data-platform>Viber</a>
+        <a class="btn btn-messenger" id="link-messenger" href="#" target="_blank" rel="noopener noreferrer" data-platform>Messenger</a>
+        <a class="btn btn-instagram" id="link-instagram" href="#" target="_blank" rel="noopener noreferrer" data-platform>Instagram</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile-only action bar -->
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a href="#menu" class="mobile-bar-btn mobile-bar-btn-secondary">View Menu</a>
+    <button type="button" class="mobile-bar-btn mobile-bar-btn-primary" data-open-cart>
+      Cart <span class="cart-count" data-cart-count>0</span>
+    </button>
+  </nav>
+
+  <script>
+    /* =========================================================
+       SITE SETTINGS: edit these values
+       ========================================================= */
+    const SITE = {
+      // Viber chat link (opens a chat with the shop's number in the Viber app).
+      viberUrl: "viber://chat?number=%2B639063402790",
+      viberNumber: "639063402790",        // digits only, international format
+
+      // Messenger and Instagram direct-message links (derived from the Facebook/Instagram pages).
+      messengerUrl: "https://m.me/sangnamskitchen",
+      instagramDmUrl: "https://ig.me/m/sangnamskitchen",
+      instagramUrl: "https://www.instagram.com/sangnamskitchen/",
+      instagramHandle: "@sangnamskitchen",
+      facebookUrl: "https://www.facebook.com/sangnamskitchen/",
+      facebookName: "Sangnam's Kitchen",
+
+      phoneTel: "+639063402790",
+      phoneDisplay: "0906 340 2790"
+    };
+
+    /* =========================================================
+       MENU: the single source of truth for products and prices.
+       - prices: one entry per container size (each gets its own stepper)
+       - flavorOptions: flavors that are ordered separately (each gets its own stepper)
+       - flavors: flavors shown as information only (no separate ordering)
+       ========================================================= */
+    const CATEGORIES = [
+      { id: "side-dishes", title: "Korean Side Dishes" },
+      { id: "meals-snacks", title: "Korean Meals and Snacks" }
+    ];
+
+    const CONTAINER_NOTE = "Based on Container Size.";
+
+    const MENU = [
+      // ---------- Category A: Korean Side Dishes ----------
+      {
+        id: "kimchi",
+        name: "Kimchi",
+        korean: "김치",
+        category: "side-dishes",
+        description: "Our signature Korean kimchi — fresh, flavorful, and perfect with everyday meals.",
+        image: "kimchi.jpg",
+        imageAlt: "Sangnam's Kitchen kimchi in a clear food container",
+        bestSeller: true,
+        prices: [
+          { label: "500ml", price: 270 },
+          { label: "750ml", price: 400 },
+          { label: "1L", price: 500 }
+        ],
+        priceNote: CONTAINER_NOTE
+      },
+      {
+        id: "seasoned-soybean-sprouts",
+        name: "Seasoned Soybean Sprouts",
+        korean: "콩나물무침",
+        category: "side-dishes",
+        description: "A light, savory Korean side dish with a refreshing crunch.",
+        image: "seasoned-soybean-sprouts.jpg",
+        imageAlt: "Seasoned soybean sprouts Korean side dish from Sangnam's Kitchen",
+        prices: [
+          { label: "500ml", price: 230 },
+          { label: "750ml", price: 350 },
+          { label: "1L", price: 450 }
+        ],
+        priceNote: CONTAINER_NOTE
+      },
+      {
+        id: "steamed-egg",
+        name: "Steamed Egg",
+        korean: "계란찜",
+        category: "side-dishes",
+        description: "Soft, silky, and fluffy Korean steamed egg — a comforting homemade favorite.",
+        image: "steamed-egg.jpg",
+        imageAlt: "Soft Korean steamed egg in a container from Sangnam's Kitchen",
+        prices: [{ label: "500ml", price: 110 }],
+        priceNote: CONTAINER_NOTE
+      },
+      {
+        id: "stir-fried-fish-cake",
+        name: "Stir-Fried Fish Cake",
+        korean: "오뎅볶음",
+        category: "side-dishes",
+        description: "Savory Korean stir-fried fish cake, available in two delicious flavors.",
+        image: "stir-fried-fish-cake.jpg",
+        imageAlt: "Korean stir-fried fish cake from Sangnam's Kitchen",
+        bestSeller: true,
+        flavorOptions: ["Original", "Spicy"],
+        prices: [{ label: "500ml", price: 260 }],
+        priceNote: CONTAINER_NOTE
+      },
+
+      // ---------- Category B: Korean Meals and Snacks ----------
+      {
+        id: "japchae",
+        name: "Korean Japchae",
+        korean: "잡채",
+        category: "meals-snacks",
+        description: "Sweet, savory Korean glass noodles with vegetables, shiitake mushrooms, onion, and thinly sliced fish cake.",
+        image: "japchae.jpg",
+        imageAlt: "Korean japchae glass noodles with vegetables in a rectangular container",
+        prices: [
+          { label: "500ml", price: 230 },
+          { label: "1L", price: 450 }
+        ],
+        priceNote: CONTAINER_NOTE
+      },
+      {
+        id: "inari-sushi",
+        name: "Korean Inari Sushi",
+        korean: "유부초밥",
+        category: "meals-snacks",
+        description: "Korean-style inari sushi with three best-selling flavors.",
+        image: "inari-sushi.jpg",
+        imageAlt: "Korean inari sushi pieces from Sangnam's Kitchen",
+        flavors: ["Tuna Mayo", "Creamy Spam Egg", "Bulgogi"],
+        prices: [{ label: "6 pieces assorted (2 of each flavor)", price: 290 }]
+      },
+      {
+        id: "so-tteok",
+        name: "So-Tteok",
+        korean: "소떡",
+        category: "meals-snacks",
+        description: "Juicy sausage and chewy rice cakes coated in sweet and spicy Korean sauce.",
+        image: "so-tteok.jpg",
+        imageAlt: "Korean so-tteok sausage and rice cake skewers from Sangnam's Kitchen",
+        prices: [{ label: "500ml", price: 260 }],
+        priceNote: CONTAINER_NOTE
+      }
+    ];
+
+    /* =========================================================
+       Order options: every orderable size (and flavor) is one option
+       ========================================================= */
+    function optionsFor(item) {
+      const flavors = item.flavorOptions || [null];
+      const out = [];
+      flavors.forEach((flavor) => {
+        item.prices.forEach((p) => {
+          out.push({
+            id: [item.id, flavor || "", p.label].join("|"),
+            item: item,
+            label: p.label,
+            text: [flavor, p.label].filter(Boolean).join(" · "),
+            price: p.price
+          });
+        });
+      });
+      return out;
+    }
+
+    const ALL_OPTIONS = MENU.flatMap(optionsFor);
+    const OPTION_BY_ID = {};
+    ALL_OPTIONS.forEach((o) => { OPTION_BY_ID[o.id] = o; });
+
+    /* =========================================================
+       Cart state (kept in this browser only; cleared with "Clear All")
+       ========================================================= */
+    const CART_KEY = "sangnams-kitchen-cart";
+    let cart = {};
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
+      if (saved && typeof saved === "object") cart = saved;
+    } catch (e) { /* storage unavailable: cart works for this visit only */ }
+
+    function saveCart() {
+      try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) { /* ignore */ }
+    }
+
+    function cartLines() {
+      return Object.keys(cart)
+        .filter((id) => OPTION_BY_ID[id] && cart[id] > 0)
+        .map((id) => ({ opt: OPTION_BY_ID[id], qty: cart[id] }));
+    }
+
+    function cartCount() {
+      return cartLines().reduce((sum, l) => sum + l.qty, 0);
+    }
+
+    function cartTotal() {
+      return cartLines().reduce((sum, l) => sum + l.qty * l.opt.price, 0);
+    }
+
+    function setQty(id, qty) {
+      const next = Math.max(0, Math.min(99, qty));
+      if (next === 0) delete cart[id];
+      else cart[id] = next;
+      saveCart();
+      refreshUI();
+    }
+
+    /* =========================================================
+       Helpers
+       ========================================================= */
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>"']/g, (c) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[c]));
+    }
+
+    function formatPeso(n) {
+      return "₱" + Number(n).toLocaleString("en-PH");
+    }
+
+    function pendingHTML(file) {
+      return '<div class="img-pending" role="img" aria-label="Photo pending: ' + escapeHTML(file) + '">' +
+        '<span class="img-pending-title">Photo pending</span>' +
+        '<span class="img-pending-file">images/' + escapeHTML(file) + "</span></div>";
+    }
+
+    function imageTag(file, alt, className) {
+      return '<img class="' + className + '" src="images/' + escapeHTML(file) + '" alt="' + escapeHTML(alt) +
+        '" loading="lazy" decoding="async" onerror="this.outerHTML=pendingHTML(\'' + escapeHTML(file) + '\')" />';
+    }
+
+    function stepper(id) {
+      const q = cart[id] || 0;
+      const safeId = escapeHTML(id);
+      return '<div class="stepper">' +
+        '<button type="button" class="step-btn" data-dec="' + safeId + '" aria-label="Remove one">&minus;</button>' +
+        '<span class="step-qty' + (q ? " is-set" : "") + '" data-qty-for="' + safeId + '" aria-live="polite">' + q + "</span>" +
+        '<button type="button" class="step-btn" data-inc="' + safeId + '" aria-label="Add one">+</button>' +
+        "</div>";
+    }
+
+    /* =========================================================
+       Rendering: menu and contact
+       ========================================================= */
+    function productCard(item) {
+      const badge = item.bestSeller ? '<span class="badge">BEST SELLER</span>' : "";
+
+      const flavorChips = item.flavors ? (
+        '<div class="flavor-row" aria-label="Flavors"><span class="flavor-label">Flavors:</span>' +
+        item.flavors.map((f) => '<span class="flavor-chip">' + escapeHTML(f) + "</span>").join("") +
+        "</div>"
+      ) : "";
+
+      const rows = optionsFor(item).map((opt) =>
+        '<li class="price-row">' +
+          '<div class="price-info"><span class="price-size">' + escapeHTML(opt.text) + "</span>" +
+          '<span class="price-value">' + formatPeso(opt.price) + "</span></div>" +
+          stepper(opt.id) +
+        "</li>"
+      ).join("");
+
+      const note = item.priceNote ? '<p class="price-note">' + escapeHTML(item.priceNote) + "</p>" : "";
+
+      return '<article class="product-card" aria-labelledby="product-' + item.id + '">' +
+        '<div class="product-media">' + badge + imageTag(item.image, item.imageAlt, "product-img") + "</div>" +
+        '<div class="product-body">' +
+          '<h4 class="product-name" id="product-' + item.id + '">' + escapeHTML(item.name) + "</h4>" +
+          '<p class="product-korean" lang="ko">' + escapeHTML(item.korean) + "</p>" +
+          '<p class="product-desc">' + escapeHTML(item.description) + "</p>" +
+          flavorChips +
+          '<ul class="price-list" aria-label="' + escapeHTML(item.name) + ' sizes and prices">' + rows + "</ul>" +
+          note +
+          '<p class="product-cta">Tap + to add to your order</p>' +
+        "</div></article>";
+    }
+
+    function renderMenu() {
+      document.getElementById("menu-categories").innerHTML = CATEGORIES.map((cat) => {
+        const items = MENU.filter((i) => i.category === cat.id);
+        return '<section class="category" aria-labelledby="category-' + cat.id + '">' +
+          '<h3 class="category-title" id="category-' + cat.id + '">' + escapeHTML(cat.title) + "</h3>" +
+          '<div class="menu-grid">' + items.map(productCard).join("") + "</div></section>";
+      }).join("");
+    }
+
+    function renderContact() {
+      document.getElementById("contact-grid").innerHTML =
+        // Viber
+        '<article class="contact-card"><h3 class="contact-card-title">Viber</h3>' +
+          '<a class="btn btn-viber btn-lg contact-btn" href="' + viberHref() + '" target="_blank" rel="noopener noreferrer">Message Us on Viber</a>' +
+          '<figure class="qr-figure">' + imageTag("viber-qr.png", "Sangnam's Kitchen Viber QR code", "qr-img") +
+          "<figcaption>Scan with Viber</figcaption></figure></article>" +
+
+        // Mobile
+        '<article class="contact-card"><h3 class="contact-card-title">Mobile</h3>' +
+          '<p class="phone-number"><a class="phone-link" href="tel:' + SITE.phoneTel + '">' + SITE.phoneDisplay + "</a></p>" +
+          '<a class="btn btn-viber btn-lg contact-btn" href="tel:' + SITE.phoneTel + '">Call ' + SITE.phoneDisplay + "</a></article>" +
+
+        // Instagram
+        '<article class="contact-card"><h3 class="contact-card-title">Instagram</h3>' +
+          '<p class="contact-handle">' + escapeHTML(SITE.instagramHandle) + "</p>" +
+          '<a class="btn btn-outline btn-lg contact-btn" href="' + escapeHTML(SITE.instagramDmUrl) + '" target="_blank" rel="noopener noreferrer">Message on Instagram</a>' +
+          '<a class="contact-note" href="' + escapeHTML(SITE.instagramUrl) + '" target="_blank" rel="noopener noreferrer">View our profile</a></article>' +
+
+        // Messenger / Facebook
+        '<article class="contact-card"><h3 class="contact-card-title">Messenger</h3>' +
+          '<p class="contact-handle">' + escapeHTML(SITE.facebookName) + "</p>" +
+          '<a class="btn btn-outline btn-lg contact-btn" href="' + escapeHTML(SITE.messengerUrl) + '" target="_blank" rel="noopener noreferrer">Message on Messenger</a>' +
+          '<a class="contact-note" href="' + escapeHTML(SITE.facebookUrl) + '" target="_blank" rel="noopener noreferrer">Visit our Facebook Page</a></article>';
+    }
+
+    /* =========================================================
+       Order message and sending
+       ========================================================= */
+    function viberHref() {
+      return SITE.viberUrl.trim() || "viber://chat?number=%2B" + SITE.viberNumber;
+    }
+
+    function buildMessage() {
+      const lines = cartLines();
+      const name = document.getElementById("cart-name").value.trim();
+      const out = ["Hi Sangnam's Kitchen! I'd like to place this order:", ""];
+
+      lines.forEach((l, i) => {
+        const detail = l.opt.text ? " – " + l.opt.text : "";
+        out.push((i + 1) + ". " + l.opt.item.name + detail + " x " + l.qty + " = " + formatPeso(l.qty * l.opt.price));
+      });
+
+      out.push("", "Total: " + formatPeso(cartTotal()));
+      if (name) out.push("Name: " + name);
+      out.push("", "Please confirm availability and the final total. Thank you!");
+      return out.join("\n");
+    }
+
+    async function copyOrder() {
+      const text = buildMessage();
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      } catch (e) { /* fall through to the fallback */ }
+
+      // Fallback for browsers without the Clipboard API
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      ta.remove();
+      return ok;
+    }
+
+    function setStatus(msg) {
+      document.getElementById("send-status").textContent = msg;
+    }
+
+    async function sendOrder() {
+      if (!cartCount()) return setStatus("Your cart is empty. Add items first.");
+
+      // On phones, the system share sheet lets them pick Viber, Messenger, Instagram, or any app
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: "Order from Sangnam's Kitchen", text: buildMessage() });
+          setStatus("Choose a chat in the app to send your order.");
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+
+      const ok = await copyOrder();
+      setStatus(ok
+        ? "Order copied. Open Viber, Messenger, or Instagram below and paste it into the chat."
+        : "Could not copy automatically. Select the text in the order message box and copy it.");
+    }
+
+    /* =========================================================
+       Cart drawer
+       ========================================================= */
+    const cartEl = document.getElementById("cart");
+    const overlayEl = document.getElementById("cart-overlay");
+    let lastFocus = null;
+
+    function openCart() {
+      lastFocus = document.activeElement;
+      cartEl.classList.add("open");
+      overlayEl.classList.add("open");
+      cartEl.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+      const closeBtn = cartEl.querySelector(".icon-btn");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeCart() {
+      cartEl.classList.remove("open");
+      overlayEl.classList.remove("open");
+      cartEl.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    }
+
+    function renderCart() {
+      const lines = cartLines();
+      const hasItems = lines.length > 0;
+
+      document.getElementById("cart-empty").hidden = hasItems;
+      document.getElementById("cart-details").hidden = !hasItems;
+
+      document.getElementById("cart-lines").innerHTML = lines.map((l) => {
+        const id = escapeHTML(l.opt.id);
+        return '<li class="cart-line">' +
+          '<div class="cart-line-info"><strong>' + escapeHTML(l.opt.item.name) + "</strong>" +
+          (l.opt.text ? "<span>" + escapeHTML(l.opt.text) + "</span>" : "") +
+          '<span>' + formatPeso(l.opt.price) + " each</span></div>" +
+          '<div class="cart-line-right">' + stepper(l.opt.id) +
+          '<span class="line-total">' + formatPeso(l.qty * l.opt.price) + "</span>" +
+          '<button type="button" class="remove-btn" data-remove="' + id + '">Remove</button></div>' +
+          "</li>";
+      }).join("");
+
+      document.getElementById("cart-total").textContent = formatPeso(cartTotal());
+      document.getElementById("order-preview").value = hasItems ? buildMessage() : "";
+
+      ["btn-send", "btn-copy", "btn-clear"].forEach((id) => {
+        document.getElementById(id).disabled = !hasItems;
+      });
+    }
+
+    function refreshUI() {
+      const count = cartCount();
+      document.querySelectorAll("[data-cart-count]").forEach((el) => { el.textContent = count; });
+
+      document.querySelectorAll(".step-qty").forEach((el) => {
+        const q = cart[el.getAttribute("data-qty-for")] || 0;
+        el.textContent = q;
+        el.classList.toggle("is-set", q > 0);
+      });
+
+      renderCart();
+    }
+
+    /* =========================================================
+       Events
+       ========================================================= */
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+
+      const inc = target.closest("[data-inc]");
+      if (inc) return changeBy(inc.getAttribute("data-inc"), 1);
+
+      const dec = target.closest("[data-dec]");
+      if (dec) return changeBy(dec.getAttribute("data-dec"), -1);
+
+      const rem = target.closest("[data-remove]");
+      if (rem) return setQty(rem.getAttribute("data-remove"), 0);
+
+      if (target.closest("[data-open-cart]")) return openCart();
+      if (target.closest("[data-close-cart]")) return closeCart();
+    });
+
+    function changeBy(id, delta) {
+      setQty(id, (cart[id] || 0) + delta);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && cartEl.classList.contains("open")) closeCart();
+    });
+
+    document.getElementById("cart-name").addEventListener("input", () => {
+      document.getElementById("order-preview").value = buildMessage();
+    });
+
+    document.getElementById("btn-send").addEventListener("click", sendOrder);
+
+    document.getElementById("btn-copy").addEventListener("click", async () => {
+      if (!cartCount()) return;
+      const ok = await copyOrder();
+      setStatus(ok ? "Order copied. Paste it into Viber, Messenger, or Instagram." : "Could not copy. Select the text in the order message box and copy it.");
+    });
+
+    document.getElementById("btn-clear").addEventListener("click", () => {
+      if (!cartCount()) return;
+      if (!window.confirm("Remove everything from your order?")) return;
+      cart = {};
+      saveCart();
+      setStatus("");
+      refreshUI();
+    });
+
+    // Platform links: copy the order first (best effort), then the link opens the app
+    function setupPlatformLinks() {
+      document.getElementById("link-viber").setAttribute("href", viberHref());
+      document.getElementById("link-messenger").setAttribute("href", SITE.messengerUrl);
+      document.getElementById("link-instagram").setAttribute("href", SITE.instagramDmUrl);
+
+      document.querySelectorAll("[data-platform]").forEach((a) => {
+        a.addEventListener("click", () => {
+          if (cartCount()) {
+            copyOrder().then((ok) => {
+              setStatus(ok ? "Order copied. Paste it into the chat." : "Select the order message box and copy it, then paste it into the chat.");
+            });
+          }
+        });
+      });
+    }
+
+    /* =========================================================
+       Start
+       ========================================================= */
+    renderMenu();
+    renderContact();
+    setupPlatformLinks();
+    refreshUI();
+  </script>
+</body>
+</html>
