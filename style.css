@@ -628,3 +628,8 @@ button { font-family: inherit; }
 .cart-contact { display: grid; gap: 0; }
 .label-with-icon { display: inline-flex; align-items: center; gap: 8px; }
 .cart-field input[aria-invalid="true"] { border-color: var(--red); }
+
+/* Keep the last contact card full width when the grid has an odd count */
+@media (min-width: 641px) {
+  .contact-grid > .contact-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
