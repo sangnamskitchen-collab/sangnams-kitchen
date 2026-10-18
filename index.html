@@ -125,8 +125,8 @@
 
         <div class="cart-contact">
           <label class="cart-field">
-            Your name (optional)
-            <input type="text" id="cust-name" maxlength="60" autocomplete="name" placeholder="e.g. Maria Santos">
+            Your name (required)
+            <input type="text" id="cust-name" maxlength="60" autocomplete="name" placeholder="e.g. Maria Santos" required>
           </label>
           <label class="cart-field">
             <span class="label-with-icon"><img src="images/mobile.png" alt="" class="platform-icon"> Mobile number (required)</span>
@@ -490,11 +490,19 @@
     }
 
     function requireContact() {
-      if (hasValidMobile()) return true;
-      setStatus("Please enter your mobile number (at least 10 digits) so we can reach you.");
-      const field = document.getElementById("cust-mobile");
-      if (field) { field.setAttribute("aria-invalid", "true"); field.focus(); }
-      return false;
+      const nameField = document.getElementById("cust-name");
+      const mobileField = document.getElementById("cust-mobile");
+      if (!contact.name) {
+        setStatus("Please enter your name so we know who the order is for.");
+        if (nameField) { nameField.setAttribute("aria-invalid", "true"); nameField.focus(); }
+        return false;
+      }
+      if (!hasValidMobile()) {
+        setStatus("Please enter your mobile number (at least 10 digits) so we can reach you.");
+        if (mobileField) { mobileField.setAttribute("aria-invalid", "true"); mobileField.focus(); }
+        return false;
+      }
+      return true;
     }
 
     /* =========================================================
@@ -672,6 +680,7 @@
       mobileField.value = contact.mobile;
       nameField.addEventListener("input", () => {
         contact.name = nameField.value.trim();
+        nameField.removeAttribute("aria-invalid");
         saveContact();
         refreshPreview();
       });
