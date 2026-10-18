@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sangnam's Kitchen: freshly prepared Korean homemade favorites in Acacia Estates, Taguig. Kimchi, Korean side dishes, and snacks. Build your order and send it via Viber, Messenger, or Instagram." />
+  <meta name="description" content="Sangnam's Kitchen: freshly prepared Korean homemade favorites in Acacia Estates, Taguig. Kimchi, Korean side dishes, and snacks. Build your order and send it via WhatsApp, Messenger, or Instagram." />
   <meta name="theme-color" content="#FFF4DF" />
   <meta property="og:title" content="Sangnam's Kitchen | Authentic Korean Homemade Food" />
   <meta property="og:description" content="Homemade Korean favorites, made fresh with love. View our menu and place your order." />
@@ -52,11 +52,11 @@
                 <ol class="steps">
           <li><span class="step-num">1</span><div><strong>Choose your dishes.</strong> Tap <b>+</b> under the size you want. Tap <b>&minus;</b> to lower the number.</div></li>
           <li><span class="step-num">2</span><div><strong>Open your cart.</strong> Tap <b>Cart</b> at the top to review your order and total.</div></li>
-          <li><span class="step-num">3</span><div><strong>Send your order.</strong> Tap <b>Send My Order</b> and choose Viber, Messenger, or any app. Then tap Send in that chat.</div></li>
+          <li><span class="step-num">3</span><div><strong>Send your order.</strong> Tap <b>Send My Order</b> and choose WhatsApp, Messenger, Instagram, or any app. Then tap Send in that chat.</div></li>
         </ol>
                 <div class="how-note">
-          <p><strong>Did not see the app list?</strong> Tap <b>Copy Order</b>, open Viber, Messenger, or Instagram, press and hold the message box, and tap <b>Paste</b>.</p>
-          <p>Viber, Messenger, and Instagram must be installed on your phone. Open this page in Safari (iPhone) or Chrome (Android), not inside the Facebook or Instagram app.</p>
+          <p><strong>Did not see the app list?</strong> Tap <b>Copy Order</b>, open WhatsApp, Messenger, or Instagram, press and hold the message box, and tap <b>Paste</b>.</p>
+          <p>WhatsApp, Messenger, and Instagram must be installed on your phone. Open this page in Safari (iPhone) or Chrome (Android), not inside the Facebook or Instagram app.</p>
         </div>
               </div>
             </details>
@@ -180,6 +180,7 @@
     const SITE = {
       // Viber chat link (opens a chat with the shop's number in the Viber app).
       viberUrl: "viber://chat?number=%2B639063402790",
+    viberAvailable: false, // set to true when Viber is back
       viberNumber: "639063402790",        // digits only, international format
 
       // Messenger and Instagram direct-message links (derived from the Facebook/Instagram pages).
@@ -444,18 +445,28 @@
       }).join("");
     }
 
+    function viberCardHTML() {
+      if (!SITE.viberAvailable) {
+        return '<article class="contact-card"><h3 class="contact-card-title">Viber</h3>' +
+          '<p class="contact-handle">Temporarily unavailable</p>' +
+          '<span class="btn btn-outline btn-lg contact-btn is-disabled" aria-disabled="true"><img src="images/viber.png" alt="" class="platform-icon">Viber unavailable</span>' +
+          '<p class="contact-note-plain">Please message us on WhatsApp, Instagram, or Messenger instead.</p></article>';
+      }
+      return '<article class="contact-card"><h3 class="contact-card-title">Viber</h3>' +
+        '<a class="btn btn-viber btn-lg contact-btn" href="' + viberHref() + '" target="_blank" rel="noopener noreferrer"><img src="images/viber.png" alt="" class="platform-icon">Message Us on Viber</a>' +
+        '<figure class="qr-figure">' + imageTag("viber-qr.png", "Sangnam's Kitchen Viber QR code", "qr-img") +
+        "<figcaption>Scan with Viber</figcaption></figure></article>";
+    }
+
     function renderContact() {
       document.getElementById("contact-grid").innerHTML =
         // Viber
-        '<article class="contact-card"><h3 class="contact-card-title">Viber</h3>' +
-          '<a class="btn btn-viber btn-lg contact-btn" href="' + viberHref() + '" target="_blank" rel="noopener noreferrer"><img src="images/viber.png" alt="" class="platform-icon">Message Us on Viber</a>' +
-          '<figure class="qr-figure">' + imageTag("viber-qr.png", "Sangnam's Kitchen Viber QR code", "qr-img") +
-          "<figcaption>Scan with Viber</figcaption></figure></article>" +
+        viberCardHTML() +
 
         // Mobile
         '<article class="contact-card"><h3 class="contact-card-title">Mobile</h3>' +
           '<p class="phone-number"><a class="phone-link" href="tel:' + SITE.phoneTel + '">' + SITE.phoneDisplay + "</a></p>" +
-          '<a class="btn btn-viber btn-lg contact-btn" href="tel:' + SITE.phoneTel + '"><img src="images/mobile.png" alt="" class="platform-icon">Call ' + SITE.phoneDisplay + "</a></article>" +
+          '<a class="btn btn-viber btn-lg contact-btn" href="sms:' + SITE.phoneTel + '"><img src="images/mobile.png" alt="" class="platform-icon">Text ' + SITE.phoneDisplay + "</a></article>" +
 
         // WhatsApp
         '<article class="contact-card"><h3 class="contact-card-title">WhatsApp</h3>' +
@@ -566,7 +577,7 @@
       if (!cartCount()) return setStatus("Your cart is empty. Add items first.");
       if (!requireContact()) return;
 
-      // On phones, the system share sheet lets them pick Viber, Messenger, Instagram, or any app
+      // On phones, the system share sheet lets them pick WhatsApp, Messenger, Instagram, or any app
       if (navigator.share) {
         try {
           await navigator.share({ title: "Order from Sangnam's Kitchen", text: buildMessage() });
@@ -579,7 +590,7 @@
 
       const ok = await copyOrder();
       setStatus(ok
-        ? "Order copied. Open Viber, Messenger, or Instagram below and paste it into the chat."
+        ? "Order copied. Open WhatsApp, Messenger, or Instagram below and paste it into the chat."
         : "Could not copy automatically. Select the text in the order message box and copy it.");
     }
 
@@ -705,7 +716,7 @@
       if (!cartCount()) return;
       if (!requireContact()) return;
       const ok = await copyOrder();
-      setStatus(ok ? "Order copied. Paste it into Viber, Messenger, or Instagram." : "Could not copy. Select the text in the order message box and copy it.");
+      setStatus(ok ? "Order copied. Paste it into WhatsApp, Messenger, or Instagram." : "Could not copy. Select the text in the order message box and copy it.");
     });
 
     document.getElementById("btn-clear").addEventListener("click", () => {
@@ -719,7 +730,19 @@
 
     // Platform links: copy the order first (best effort), then the link opens the app
     function setupPlatformLinks() {
-      document.getElementById("link-viber").setAttribute("href", viberHref());
+      const viberLink = document.getElementById("link-viber");
+      if (!SITE.viberAvailable) {
+        viberLink.classList.add("is-disabled");
+        viberLink.setAttribute("aria-disabled", "true");
+        viberLink.setAttribute("href", "#");
+        viberLink.removeAttribute("target");
+        viberLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          setStatus("Viber is temporarily unavailable. Please use WhatsApp, Instagram, or Messenger instead.");
+        });
+      }
+      viberLink.setAttribute("href", SITE.viberAvailable ? viberHref() : "#");
       document.getElementById("link-messenger").setAttribute("href", SITE.messengerUrl);
       document.getElementById("link-instagram").setAttribute("href", SITE.instagramDmUrl);
       document.getElementById("link-whatsapp").setAttribute("href", SITE.whatsappUrl);
