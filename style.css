@@ -427,7 +427,7 @@ button { font-family: inherit; }
 .cart-foot-row .btn { padding: 12px 14px; font-size: 0.95rem; }
 .send-status { font-size: 0.9rem; color: var(--leaf); min-height: 1.4em; font-weight: 700; text-align: center; }
 .platform-label { font-size: 0.85rem; color: var(--brown-soft); text-align: center; }
-.platform-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.platform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .platform-row .btn { padding: 10px 6px; font-size: 0.88rem; min-height: 46px; }
 .btn-messenger { background: #0a7cff; color: #fff; }
 .btn-messenger:hover { background: #0865d1; }
@@ -615,3 +615,16 @@ button { font-family: inherit; }
 .hero-actions > .how-details { flex: 1 1 100%; }
 .hero-actions .how-summary { width: 100%; min-width: 0; }
 .hero-actions .how-panel { text-align: left; }
+
+.btn-whatsapp { background: #1ea855; color: #fff; }
+.btn-whatsapp:hover { background: #178a45; }
+
+/* Platform logos beside buttons */
+.platform-icon { width: 22px; height: 22px; object-fit: contain; flex: 0 0 auto; border-radius: 6px; }
+.platform-row .platform-icon { width: 20px; height: 20px; }
+.btn-outline .platform-icon, .btn-viber .platform-icon, .btn-whatsapp .platform-icon { background: transparent; }
+
+/* Name and mobile fields in the cart */
+.cart-contact { display: grid; gap: 0; }
+.label-with-icon { display: inline-flex; align-items: center; gap: 8px; }
+.cart-field input[aria-invalid="true"] { border-color: var(--red); }

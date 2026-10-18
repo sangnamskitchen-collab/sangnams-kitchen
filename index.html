@@ -52,8 +52,7 @@
                 <ol class="steps">
           <li><span class="step-num">1</span><div><strong>Choose your dishes.</strong> Tap <b>+</b> under the size you want. Tap <b>&minus;</b> to lower the number.</div></li>
           <li><span class="step-num">2</span><div><strong>Open your cart.</strong> Tap <b>Cart</b> at the top to review your order and total.</div></li>
-          <li><span class="step-num">3</span><div><strong>Add your name</strong> (optional) so we know who to reply to.</div></li>
-          <li><span class="step-num">4</span><div><strong>Send your order.</strong> Tap <b>Send My Order</b> and choose Viber, Messenger, or any app. Then tap Send in that chat.</div></li>
+          <li><span class="step-num">3</span><div><strong>Send your order.</strong> Tap <b>Send My Order</b> and choose Viber, Messenger, or any app. Then tap Send in that chat.</div></li>
         </ol>
                 <div class="how-note">
           <p><strong>Did not see the app list?</strong> Tap <b>Copy Order</b>, open Viber, Messenger, or Instagram, press and hold the message box, and tap <b>Paste</b>.</p>
@@ -123,10 +122,17 @@
       <ul class="cart-lines" id="cart-lines"></ul>
 
       <div id="cart-details" hidden>
-        <label class="cart-field">
-          Your name (optional)
-          <input id="cart-name" type="text" maxlength="60" autocomplete="name" placeholder="So we know who to reply to" />
-        </label>
+
+        <div class="cart-contact">
+          <label class="cart-field">
+            Your name (optional)
+            <input type="text" id="cust-name" maxlength="60" autocomplete="name" placeholder="e.g. Maria Santos">
+          </label>
+          <label class="cart-field">
+            <span class="label-with-icon"><img src="images/mobile.png" alt="" class="platform-icon"> Mobile number (required)</span>
+            <input type="tel" id="cust-mobile" maxlength="20" inputmode="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required>
+          </label>
+        </div>
 
         <div class="cart-total">
           <span>Total</span>
@@ -150,9 +156,10 @@
       <p class="send-status" id="send-status" role="status"></p>
       <p class="platform-label">Or paste your order into a chat:</p>
       <div class="platform-row">
-        <a class="btn btn-viber" id="link-viber" href="#" target="_blank" rel="noopener noreferrer" data-platform>Viber</a>
-        <a class="btn btn-messenger" id="link-messenger" href="#" target="_blank" rel="noopener noreferrer" data-platform>Messenger</a>
-        <a class="btn btn-instagram" id="link-instagram" href="#" target="_blank" rel="noopener noreferrer" data-platform>Instagram</a>
+        <a class="btn btn-viber" id="link-viber" href="#" target="_blank" rel="noopener noreferrer" data-platform><img src="images/viber.png" alt="" class="platform-icon">Viber</a>
+        <a class="btn btn-messenger" id="link-messenger" href="#" target="_blank" rel="noopener noreferrer" data-platform><img src="images/messenger.png" alt="" class="platform-icon">Messenger</a>
+        <a class="btn btn-instagram" id="link-instagram" href="#" target="_blank" rel="noopener noreferrer" data-platform><img src="images/instagram.png" alt="" class="platform-icon">Instagram</a>
+        <a class="btn btn-whatsapp" id="link-whatsapp" href="#" target="_blank" rel="noopener noreferrer" data-platform><img src="images/whatsapp.png" alt="" class="platform-icon">WhatsApp</a>
       </div>
     </div>
   </aside>
@@ -177,6 +184,7 @@
 
       // Messenger and Instagram direct-message links (derived from the Facebook/Instagram pages).
       messengerUrl: "https://m.me/sangnamskitchen",
+      whatsappUrl: "https://wa.me/message/4I4C3RKYYJWVM1",
       instagramDmUrl: "https://ig.me/m/sangnamskitchen",
       instagramUrl: "https://www.instagram.com/sangnamskitchen/",
       instagramHandle: "@sangnamskitchen",
@@ -440,26 +448,53 @@
       document.getElementById("contact-grid").innerHTML =
         // Viber
         '<article class="contact-card"><h3 class="contact-card-title">Viber</h3>' +
-          '<a class="btn btn-viber btn-lg contact-btn" href="' + viberHref() + '" target="_blank" rel="noopener noreferrer">Message Us on Viber</a>' +
+          '<a class="btn btn-viber btn-lg contact-btn" href="' + viberHref() + '" target="_blank" rel="noopener noreferrer"><img src="images/viber.png" alt="" class="platform-icon">Message Us on Viber</a>' +
           '<figure class="qr-figure">' + imageTag("viber-qr.png", "Sangnam's Kitchen Viber QR code", "qr-img") +
           "<figcaption>Scan with Viber</figcaption></figure></article>" +
 
         // Mobile
         '<article class="contact-card"><h3 class="contact-card-title">Mobile</h3>' +
           '<p class="phone-number"><a class="phone-link" href="tel:' + SITE.phoneTel + '">' + SITE.phoneDisplay + "</a></p>" +
-          '<a class="btn btn-viber btn-lg contact-btn" href="tel:' + SITE.phoneTel + '">Call ' + SITE.phoneDisplay + "</a></article>" +
+          '<a class="btn btn-viber btn-lg contact-btn" href="tel:' + SITE.phoneTel + '"><img src="images/mobile.png" alt="" class="platform-icon">Call ' + SITE.phoneDisplay + "</a></article>" +
 
         // Instagram
         '<article class="contact-card"><h3 class="contact-card-title">Instagram</h3>' +
           '<p class="contact-handle">' + escapeHTML(SITE.instagramHandle) + "</p>" +
-          '<a class="btn btn-outline btn-lg contact-btn" href="' + escapeHTML(SITE.instagramDmUrl) + '" target="_blank" rel="noopener noreferrer">Message on Instagram</a>' +
+          '<a class="btn btn-outline btn-lg contact-btn" href="' + escapeHTML(SITE.instagramDmUrl) + '" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="" class="platform-icon">Message on Instagram</a>' +
           '<a class="contact-note" href="' + escapeHTML(SITE.instagramUrl) + '" target="_blank" rel="noopener noreferrer">View our profile</a></article>' +
 
         // Messenger / Facebook
         '<article class="contact-card"><h3 class="contact-card-title">Messenger</h3>' +
           '<p class="contact-handle">' + escapeHTML(SITE.facebookName) + "</p>" +
-          '<a class="btn btn-outline btn-lg contact-btn" href="' + escapeHTML(SITE.messengerUrl) + '" target="_blank" rel="noopener noreferrer">Message on Messenger</a>' +
+          '<a class="btn btn-outline btn-lg contact-btn" href="' + escapeHTML(SITE.messengerUrl) + '" target="_blank" rel="noopener noreferrer"><img src="images/messenger.png" alt="" class="platform-icon">Message on Messenger</a>' +
           '<a class="contact-note" href="' + escapeHTML(SITE.facebookUrl) + '" target="_blank" rel="noopener noreferrer">Visit our Facebook Page</a></article>';
+    }
+
+    /* =========================================================
+       Customer contact (name optional, mobile required)
+       ========================================================= */
+    const CONTACT_KEY = "sangnams-kitchen-contact";
+    let contact = { name: "", mobile: "" };
+    try {
+      const saved = JSON.parse(localStorage.getItem(CONTACT_KEY) || "{}");
+      contact.name = String(saved.name || "");
+      contact.mobile = String(saved.mobile || "");
+    } catch (e) { /* storage unavailable: start blank */ }
+
+    function saveContact() {
+      try { localStorage.setItem(CONTACT_KEY, JSON.stringify(contact)); } catch (e) { /* ignore */ }
+    }
+
+    function hasValidMobile() {
+      return contact.mobile.replace(/\D/g, "").length >= 10;
+    }
+
+    function requireContact() {
+      if (hasValidMobile()) return true;
+      setStatus("Please enter your mobile number (at least 10 digits) so we can reach you.");
+      const field = document.getElementById("cust-mobile");
+      if (field) { field.setAttribute("aria-invalid", "true"); field.focus(); }
+      return false;
     }
 
     /* =========================================================
@@ -471,8 +506,11 @@
 
     function buildMessage() {
       const lines = cartLines();
-      const name = document.getElementById("cart-name").value.trim();
       const out = ["Hi Sangnam's Kitchen! I'd like to place this order:", ""];
+
+      if (contact.name) out.push("Name: " + contact.name);
+      if (contact.mobile) out.push("Mobile: " + contact.mobile);
+      if (contact.name || contact.mobile) out.push("");
 
       lines.forEach((l, i) => {
         const detail = l.opt.text ? " – " + l.opt.text : "";
@@ -480,7 +518,6 @@
       });
 
       out.push("", "Total: " + formatPeso(cartTotal()));
-      if (name) out.push("Name: " + name);
       out.push("", "Please confirm availability and the final total. Thank you!");
       return out.join("\n");
     }
@@ -514,6 +551,7 @@
 
     async function sendOrder() {
       if (!cartCount()) return setStatus("Your cart is empty. Add items first.");
+      if (!requireContact()) return;
 
       // On phones, the system share sheet lets them pick Viber, Messenger, Instagram, or any app
       if (navigator.share) {
@@ -624,14 +662,34 @@
       if (e.key === "Escape" && cartEl.classList.contains("open")) closeCart();
     });
 
-    document.getElementById("cart-name").addEventListener("input", () => {
-      document.getElementById("order-preview").value = buildMessage();
-    });
-
     document.getElementById("btn-send").addEventListener("click", sendOrder);
+
+    // Name and mobile fields: keep the order message in sync and remember them on this phone
+    (function bindContactFields() {
+      const nameField = document.getElementById("cust-name");
+      const mobileField = document.getElementById("cust-mobile");
+      nameField.value = contact.name;
+      mobileField.value = contact.mobile;
+      nameField.addEventListener("input", () => {
+        contact.name = nameField.value.trim();
+        saveContact();
+        refreshPreview();
+      });
+      mobileField.addEventListener("input", () => {
+        contact.mobile = mobileField.value.trim();
+        mobileField.removeAttribute("aria-invalid");
+        saveContact();
+        refreshPreview();
+      });
+    })();
+
+    function refreshPreview() {
+      document.getElementById("order-preview").value = cartCount() ? buildMessage() : "";
+    }
 
     document.getElementById("btn-copy").addEventListener("click", async () => {
       if (!cartCount()) return;
+      if (!requireContact()) return;
       const ok = await copyOrder();
       setStatus(ok ? "Order copied. Paste it into Viber, Messenger, or Instagram." : "Could not copy. Select the text in the order message box and copy it.");
     });
@@ -650,9 +708,11 @@
       document.getElementById("link-viber").setAttribute("href", viberHref());
       document.getElementById("link-messenger").setAttribute("href", SITE.messengerUrl);
       document.getElementById("link-instagram").setAttribute("href", SITE.instagramDmUrl);
+      document.getElementById("link-whatsapp").setAttribute("href", SITE.whatsappUrl);
 
       document.querySelectorAll("[data-platform]").forEach((a) => {
-        a.addEventListener("click", () => {
+        a.addEventListener("click", (e) => {
+          if (cartCount() && !requireContact()) { e.preventDefault(); return; }
           if (cartCount()) {
             copyOrder().then((ok) => {
               setStatus(ok ? "Order copied. Paste it into the chat." : "Select the order message box and copy it, then paste it into the chat.");
